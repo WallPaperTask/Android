@@ -22,13 +22,6 @@
         android:layout_height="match_parent"
         android:padding="8dp">
 
-        <Button
-            android:id="@+id/bt_save_img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:textAllCaps="false"/>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
