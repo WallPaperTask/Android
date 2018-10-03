@@ -1,55 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/container"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/bt_save_img"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:textAllCaps="false"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/container"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/bt_save_img"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4" >
+            android:text="Save"
+            android:textAllCaps="false"/>
 
-            <EditText
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" >
+
+                <EditText
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:id="@+id/et_task"
+                    android:hint="Task"
+                    android:maxLines="1"
+                    android:inputType="text" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/bt_add_task"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:id="@+id/et_task"
-                android:hint="Task"
-                android:maxLines="1"
-                android:inputType="text" />
+                android:layout_weight="1"
+                android:src="@drawable/ic_add_black_24dp"
+                android:background="#000f"
+                android:contentDescription="Add" />
 
+        </LinearLayout>
 
-        </android.support.design.widget.TextInputLayout>
-
-        <ImageButton
-            android:id="@+id/bt_add_task"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_add_black_24dp"
-            android:background="#000f"
-            android:contentDescription="Add" />
+        <ListView
+            android:id="@+id/lv_task"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9" />
 
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/lv_task"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9" />
 
 </LinearLayout>
