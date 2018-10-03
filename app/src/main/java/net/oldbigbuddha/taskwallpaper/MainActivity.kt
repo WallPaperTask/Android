@@ -3,6 +3,7 @@ package net.oldbigbuddha.taskwallpaper
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
@@ -17,18 +18,15 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(my_toolbar)
         my_toolbar.inflateMenu(R.menu.main_menu)
 
-        val adapter = ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                ArrayList<String>()
-        )
+        recycler_tasks.layoutManager = LinearLayoutManager(this)
+        val adapter = TaskAdapter(ArrayList(), this)
 
         bt_add_task.setOnClickListener {
 
             if ( !TextUtils.isEmpty( et_task.text.toString() ) ) {
 
-                adapter.add(et_task.text.toString())
-                adapter.notifyDataSetChanged()
+                val task = Task( mTaskName = et_task.text.toString() )
+                adapter.addTask(task)
 
             } else {
 
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        lv_task.adapter = adapter
+        recycler_tasks.adapter = adapter
 
     }
 
