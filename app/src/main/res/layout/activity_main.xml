@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    android:id="@+id/container"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,14 +18,22 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-        <EditText
-            android:id="@+id/et_task"
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="Task"
-            android:maxLines="1"
-            tools:ignore="NestedWeights" />
+            android:layout_weight="4" >
+
+            <EditText
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:id="@+id/et_task"
+                android:hint="Task"
+                android:maxLines="1"
+                android:inputType="text" />
+
+
+        </android.support.design.widget.TextInputLayout>
 
         <ImageButton
             android:id="@+id/bt_add_task"
@@ -32,7 +41,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/ic_add_black_24dp"
-            android:background="#000f"/>
+            android:background="#000f"
+            android:contentDescription="Add" />
 
     </LinearLayout>
 
