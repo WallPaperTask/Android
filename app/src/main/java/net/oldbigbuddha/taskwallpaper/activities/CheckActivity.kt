@@ -8,12 +8,14 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_check.*
 import net.oldbigbuddha.taskwallpaper.R
+import net.oldbigbuddha.taskwallpaper.hideSystemUI
 
 class CheckActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
+        hideSystemUI(this)
         setSupportActionBar(toolbar_check)
         toolbar_check.inflateMenu(R.menu.menu_check)
         supportActionBar?.let {
