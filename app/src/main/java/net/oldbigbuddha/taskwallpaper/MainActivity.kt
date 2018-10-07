@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
             if ( !TextUtils.isEmpty( et_task.text.toString() ) ) {
 
-                val task = Task( mTaskName = et_task.text.toString() )
+                val task = et_task.text.toString()
                 adapter.addTask(task)
 
             } else {

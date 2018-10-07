@@ -10,13 +10,13 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter(
-        private val mTasks: ArrayList<Task>,
+        private val mTasks: ArrayList<String>,
         private val mContext: Context
 ): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = mTasks.size
 
-    fun addTask(task: Task) {
+    fun addTask(task: String) {
         mTasks.add(0, task)
         notifyDataSetChanged()
     }
@@ -24,7 +24,7 @@ class TaskAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.task_item, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvTask.text = mTasks[position].mTaskName
+        holder.tvTask.text = mTasks[position]
         holder.btRemoveItem.setOnClickListener {
             mTasks.removeAt(position)
             notifyItemRemoved(position)
