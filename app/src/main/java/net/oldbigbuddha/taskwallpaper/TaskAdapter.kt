@@ -10,7 +10,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter(
-        private val mTasks: ArrayList<String>,
+        var mTasks: ArrayList<String>,
         private val mContext: Context
 ): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 

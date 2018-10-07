@@ -1,6 +1,5 @@
 package net.oldbigbuddha.taskwallpaper.activities
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar

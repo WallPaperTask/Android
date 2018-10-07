@@ -45,6 +45,7 @@ fun enableImageButton(imageButton: ImageButton) {
     imageButton.isClickable = true
 }
 
+// Source: [Android] アプリのタイトルバーを非表示、全画面表示にする - https://akira-watson.com/android/theme-notitlebar.html
 
 fun hideSystemUI(activity: Activity) {
     val decorView = activity.window.decorView
@@ -68,4 +69,10 @@ fun hideSystemUI(activity: Activity) {
             Log.d("debug", "The system bars are NOT visible")
         }
     }
+}
+
+fun parseToArray(content: String): List<String> {
+    val array = content.replace("[", "")
+                    .replace("]", "")
+    return array.split(Regex(","))
 }
