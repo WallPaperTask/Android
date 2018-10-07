@@ -14,6 +14,8 @@ class TaskAdapter(
         private val mContext: Context
 ): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
+    lateinit var onItemRemoveListener: View.OnClickListener
+
     override fun getItemCount(): Int = mTasks.size
 
     fun addTask(task: String) {
@@ -29,6 +31,7 @@ class TaskAdapter(
             mTasks.removeAt(position)
             notifyItemRemoved(position)
             notifyDataSetChanged()
+            onItemRemoveListener.onClick(holder.btRemoveItem)
         }
     }
 

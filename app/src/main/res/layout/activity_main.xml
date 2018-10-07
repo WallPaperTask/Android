@@ -15,6 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+
     <LinearLayout
         android:id="@+id/container"
         android:orientation="vertical"
@@ -22,37 +23,61 @@
         android:layout_height="match_parent"
         android:padding="8dp">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" >
+
+                    <EditText
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/et_task"
+                        android:hint="Task"
+                        android:maxLines="1"
+                        android:inputType="text" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/bt_add_task"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_add_black_24dp"
+                    android:background="#000f"
+                    android:contentDescription="Add" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/cover"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4" >
+                android:background="#888888aa"
+                android:visibility="invisible">
 
                 <EditText
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:id="@+id/et_task"
-                    android:hint="Task"
-                    android:maxLines="1"
-                    android:inputType="text" />
+                    android:visibility="invisible"
+                    android:cursorVisible="false"
+                    android:enabled="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
 
 
-            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
 
-            <ImageButton
-                android:id="@+id/bt_add_task"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_add_black_24dp"
-                android:background="#000f"
-                android:contentDescription="Add" />
-
-        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_tasks"
