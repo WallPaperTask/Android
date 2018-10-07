@@ -1,6 +1,6 @@
-package net.oldbigbuddha.taskwallpaper
+package net.oldbigbuddha.taskwallpaper.activities
 
-import android.graphics.Color
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -10,14 +10,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import net.oldbigbuddha.taskwallpaper.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(my_toolbar)
-        my_toolbar.inflateMenu(R.menu.main_menu)
+        setSupportActionBar(toolbar_main)
+        toolbar_main.inflateMenu(R.menu.menu_main)
 
         enableEditText(et_task)
         recycler_tasks.layoutManager = LinearLayoutManager(this)
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
 
-                Snackbar.make(container, "Task is empty", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(container_main, "Task is empty", Snackbar.LENGTH_SHORT).show();
 
             }
 
@@ -59,14 +60,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
 
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        R.id.action_save -> {
-            Snackbar.make(container, "Saved", Snackbar.LENGTH_SHORT).show()
+        R.id.action_next -> {
+            startActivity( Intent( this, CheckActivity::class.java ) )
             true
         }
 
