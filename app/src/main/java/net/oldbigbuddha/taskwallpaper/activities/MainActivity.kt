@@ -1,6 +1,7 @@
 package net.oldbigbuddha.taskwallpaper.activities
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
@@ -14,6 +15,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import net.oldbigbuddha.taskwallpaper.*
 import net.oldbigbuddha.taskwallpaper.Adapters.TaskAdapter
+import net.oldbigbuddha.taskwallpaper.Fragments.DescriptionDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +30,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val fragment = DescriptionDialogFragment.newInstance()
+        fragment.onNext = DialogInterface.OnClickListener { _, _ ->
+        }
+        fragment.show(supportFragmentManager, "Description-WallPaper")
+        initialize()
+
+    }
+
+    private fun initialize() {
         setSupportActionBar(toolbar_main)
         toolbar_main.inflateMenu(R.menu.menu_main)
 
@@ -105,6 +117,10 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         adapter.mTasks = loadTasks()
     }
+
+
+
+
 
     private fun saveTasks() {
         editor = preferences.edit()

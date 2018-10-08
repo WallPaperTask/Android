@@ -16,7 +16,6 @@ class CheckActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
-        hideSystemUI(this)
         setSupportActionBar(toolbar_check)
         toolbar_check.inflateMenu(R.menu.menu_check)
         supportActionBar?.let {
@@ -46,8 +45,10 @@ class CheckActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            hideSystemUI(this)
+        }
     }
 }

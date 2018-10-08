@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
-import net.oldbigbuddha.taskwallpaper.CheckImageFragment
+import net.oldbigbuddha.taskwallpaper.Fragments.CheckImageFragment
 
 class CheckFragmentPagerAdapter(manager: FragmentManager): FragmentPagerAdapter(manager) {
 
@@ -17,6 +17,7 @@ class CheckFragmentPagerAdapter(manager: FragmentManager): FragmentPagerAdapter(
 
         val fragment = CheckImageFragment.newInstance()
         val args = Bundle()
+        args.putBoolean("fab", false)
 
         when (position) {
             0 -> {
@@ -36,6 +37,7 @@ class CheckFragmentPagerAdapter(manager: FragmentManager): FragmentPagerAdapter(
             }
 
             4 -> {
+                args.putBoolean("fab", true)
                 Log.d("Fragment Page", "4")
             }
 

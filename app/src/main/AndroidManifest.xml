@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CheckActivity"></activity>
+        <activity
+            android:name=".activities.CheckActivity"
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>
