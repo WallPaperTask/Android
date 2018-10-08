@@ -1,11 +1,13 @@
 package net.oldbigbuddha.taskwallpaper.activities
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_check.*
+import net.oldbigbuddha.taskwallpaper.Adapters.CheckFragmentPagerAdapter
 import net.oldbigbuddha.taskwallpaper.R
 import net.oldbigbuddha.taskwallpaper.hideSystemUI
 
@@ -22,6 +24,8 @@ class CheckActivity : AppCompatActivity() {
             it.setHomeButtonEnabled(true)
         } ?: IllegalAccessException("Toolbar cannot be null")
 
+        val adapter = CheckFragmentPagerAdapter(supportFragmentManager)
+        viewpager_check.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

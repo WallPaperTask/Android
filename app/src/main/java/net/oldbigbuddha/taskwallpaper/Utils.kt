@@ -74,5 +74,7 @@ fun hideSystemUI(activity: Activity) {
 fun parseToArray(content: String): List<String> {
     val array = content.replace("[", "")
                     .replace("]", "")
-    return array.split(Regex(","))
+    return array.split(Regex(",")).map {
+        it.replaceFirst(" ", "")
+    }
 }

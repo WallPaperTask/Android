@@ -5,9 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
-import android.support.v4.app.AppLaunchChecker
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.Menu
@@ -15,6 +13,8 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import net.oldbigbuddha.taskwallpaper.*
+import net.oldbigbuddha.taskwallpaper.Adapters.TaskAdapter
+
 class MainActivity : AppCompatActivity() {
 
     companion object {

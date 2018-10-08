@@ -1,4 +1,4 @@
-package net.oldbigbuddha.taskwallpaper
+package net.oldbigbuddha.taskwallpaper.Adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import kotlinx.android.synthetic.main.task_item.view.*
+import net.oldbigbuddha.taskwallpaper.R
 
 class TaskAdapter(
         var mTasks: ArrayList<String>,
